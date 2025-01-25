@@ -1,12 +1,23 @@
 import express from 'express';
+import connectToDatabase from './database/index.js';
+import PollController from './controllers/pollController.js';
+import PollService from './services/pollService.js';
+import routes from './routes/routes.js';
+
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
-});
+
+connectToDatabase();
+
+const pollService = new PollService();
+const pollController = new PollController(pollService);
+
+
+routes(app, pollController);
+
 
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
