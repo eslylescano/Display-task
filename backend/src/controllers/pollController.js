@@ -11,6 +11,15 @@ class PollController {
             res.status(400).json({ error: error.message });
         }
     }
+
+    async getAllPolls(req, res) {
+        try {
+            const polls = await this.service.getAllPolls();
+            res.status(200).json(polls);
+        } catch (error) {
+            res.status(400).json({ error: error.message });
+        }
+    }
 }
 
 export default PollController;
