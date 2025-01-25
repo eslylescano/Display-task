@@ -40,4 +40,18 @@ describe('Poll API', () => {
         expect(res.status).to.equal(200);
         expect(res.body).to.be.an('array');
     });
+
+    it('should cast a vote for an option', async () => {
+        const optionName = 'Manchester City';
+
+        const res = await request(app)
+            .post(`/api/polls/${pollId}/vote/${encodeURIComponent(optionName)}`)
+            .send();
+
+        expect(res.status).to.equal(200);
+        const votedPoll = res.body;
+        const votedOption = votedPoll.options.find(o => o.name === optionName);
+        expect(votedOption).to.exist;
+        expect(votedOption.votes).to.equal(1);
+    });
 });
