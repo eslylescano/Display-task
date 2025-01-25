@@ -54,4 +54,27 @@ describe('Poll API', () => {
         expect(votedOption).to.exist;
         expect(votedOption.votes).to.equal(1);
     });
+
+
+    it('should list all votes for the poll', async () => {
+        expect(pollId).to.not.be.undefined;
+
+        const res = await request(app)
+            .get(`/api/polls/${pollId}/votes`)
+            .send();
+
+        expect(res.status).to.equal(200);
+
+        expect(res.body).to.be.an('array');
+
+        expect(res.body.length).to.be.at.least(1);
+
+        const firstVote = res.body[0];
+
+        expect(firstVote).to.have.property('_id');
+        expect(firstVote).to.have.property('pollId', pollId);
+        expect(firstVote).to.have.property('optionName').that.is.a('string');
+        expect(firstVote).to.have.property('timestamp').that.is.a('string');
+
+    });
 });
