@@ -11,6 +11,10 @@ class MongoPollRepository extends PollRepository {
         return await Poll.find();
     }
 
+    async findPollById(id) {
+        return await Poll.findById(id);
+    }
+
 }
 
 export default MongoPollRepository;

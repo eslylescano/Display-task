@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import app from '../src/app.js';
 
 describe('Poll API', () => {
+    let pollId;
     it('should create a new poll', async () => {
         const res = await request(app)
             .post('/api/polls')
@@ -16,6 +17,18 @@ describe('Poll API', () => {
             });
 
         expect(res.status).to.equal(201);
+        expect(res.body).to.have.property('question').equal('Who will win the Premier League?');
+        expect(res.body.options).to.have.lengthOf(3);
+        pollId = res.body._id;
+    });
+
+    it('should retrieve the created poll by ID', async () => {
+        expect(pollId).to.not.be.undefined;
+
+        const res = await request(app)
+            .get(`/api/polls/${pollId}`);
+
+        expect(res.status).to.equal(200);
         expect(res.body).to.have.property('question').equal('Who will win the Premier League?');
         expect(res.body.options).to.have.lengthOf(3);
     });

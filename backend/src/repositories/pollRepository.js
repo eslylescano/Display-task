@@ -7,6 +7,10 @@ class PollRepository {
         throw new Error('findAllPolls method not implemented');
     }
 
+    async findPollById(id) {
+        throw new Error('Method not implemented');
+    }
+
 }
 
 export default PollRepository;

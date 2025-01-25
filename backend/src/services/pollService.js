@@ -15,6 +15,10 @@ class PollService {
     async getAllPolls() {
         return await this.repository.findAllPolls();
     }
+
+    async getPollById(id) {
+        return await this.repository.findPollById(id);
+    }
 }
 
 export default PollService;

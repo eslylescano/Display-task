@@ -20,6 +20,21 @@ class PollController {
             res.status(400).json({ error: error.message });
         }
     }
+
+    async getPollById(req, res) {
+        try {
+            const pollId = req.params.id;
+            const poll = await this.service.getPollById(pollId);
+
+            if (!poll) {
+                return res.status(404).json({ error: 'Poll not found' });
+            }
+
+            res.status(200).json(poll);
+        } catch (error) {
+            res.status(400).json({ error: error.message });
+        }
+    }
 }
 
 export default PollController;
