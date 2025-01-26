@@ -38,14 +38,23 @@ A Node.js/Express-based application for creating polls, voting on poll options, 
 
 ## Running the Application
 
-1. **Start the Server**:
+1. **Configure .env**:
+   ```bash
+   Create .env file under /src and use the credentials provided
+   ```
+   This should log that the server is listening on the configured port (e.g., `http://localhost:4000`).
+
+2. **Start the Server**:
+
    ```bash
    npm start
    ```
    This should log that the server is listening on the configured port (e.g., `http://localhost:4000`).
 
-2. **Check**  
-   Go to [http://localhost:4000](http://localhost:4000). If you have a root route set up, it may display a welcome message.
+3. **Check**  
+   Go to [http://localhost:4000/api/polls](http://localhost:4000). If return and polls available.
+
+   Alternative you can use docker-compose up, and create polls, and in the react app it have to use the right id to test.
 
 ---
 
