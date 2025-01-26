@@ -3,31 +3,34 @@ import Logo from '../../components/Logo/Logo';
 import PollQuestion from '../../components/PollQuestion/PollQuestion';
 import PollOptions from '../../components/PollOptions/PollOptions';
 import SubmitButton from '../../components/SubmitButton/SubmitButton';
+import { usePoll } from '../../context/PoolContext';
 import './VotePage.css';
 
-function VotePage() {
-    const pollData = {
-        _id: '6794e3a549e1cdbcc188254e',
-        question: 'Who will win the Premier League?',
-        options: [
-            { name: 'Manchester City', votes: 3, _id: '6794e3a549e1cdbcc188254f' },
-            { name: 'Arsenal', votes: 2, _id: '6794e3a549e1cdbcc1882550' },
-            { name: 'Liverpool', votes: 0, _id: '6794e3a549e1cdbcc1882551' },
-        ],
-        createdAt: '2025-01-25T13:14:13.317Z',
-        __v: 0,
-    };
+const VotePage = () => {
+    const { poll, selectedOption, isSubmitting, handleOptionSelect, handleSubmitVote } = usePoll();
 
-    const options = pollData.options.map(option => option.name);
+    if (!poll) {
+        return <div className="loading">Loading poll...</div>;
+    }
+
+    const options = poll.options.map(option => option.name);
 
     return (
         <div className="container">
             <Logo />
-            <PollQuestion question={pollData.question} />
-            <PollOptions options={options} />
-            <SubmitButton />
+            <PollQuestion question={poll.question} />
+            <PollOptions
+                options={options}
+                selectedOption={selectedOption}
+                onSelectOption={handleOptionSelect}
+            />
+            <SubmitButton
+                onClick={handleSubmitVote}
+                disabled={isSubmitting}
+                label={isSubmitting ? 'Submitting...' : 'SUBMIT'}
+            />
         </div>
     );
-}
+};
 
 export default VotePage;

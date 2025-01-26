@@ -1,6 +1,14 @@
 import './SubmitButton.css';
-function SubmitButton() {
-    return <button className="submit-button">SUBMIT</button>;
-}
+const SubmitButton = ({ onClick, disabled, label }) => {
+    return (
+        <button
+            className="submit-button"
+            onClick={onClick}
+            disabled={disabled}
+        >
+            {label}
+        </button>
+    );
+};
 
 export default SubmitButton;
