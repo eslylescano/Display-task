@@ -19,7 +19,7 @@
     left: 0;
     height: 100%;
     width: calc(var(--percentage, 0) * 1%);
-    background: rgba(75, 0, 130, 0.8);
+    background: rgba(143, 110, 237, 0.8);
     z-index: 1;
     transition: width 0.3s ease;
   }
