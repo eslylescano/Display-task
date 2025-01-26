@@ -10,23 +10,13 @@ A Node.js/Express-based application for creating polls, voting on poll options, 
 
 ## Table of Contents
 
-1. [Features](#features)  
-2. [Getting Started](#getting-started)  
-3. [Running the Application](#running-the-application)  
-4. [API Endpoints](#api-endpoints)  
-5. [Technology Stack](#technology-stack)  
-6. [Architecture Overview](#architecture-overview)  
-7. [Testing](#testing)
 
----
-
-## Features
-
-- **Create Poll**: Must have 2–7 options, each with a name.  
-- **List Polls**: View all polls.  
-- **Retrieve Poll**: Fetch a poll by its `id`.  
-- **Vote**: Cast a vote for a poll option, which increments the vote count in the poll and stores an individual vote record.  
-- **List Individual Votes**: Retrieve timestamps and user info for each vote in a poll.
+1. [Getting Started](#getting-started)  
+2. [Running the Application](#running-the-application)  
+3. [API Endpoints](#api-endpoints)  
+4. [Technology Stack](#technology-stack)  
+5. [Architecture Overview](#architecture-overview)  
+6. [Testing](#testing)
 
 ---
 
