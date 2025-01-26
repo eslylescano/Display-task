@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "nodemon src/app.js"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,7 @@
     "chai": "^5.1.2",
     "jest": "^29.7.0",
     "mocha": "^11.1.0",
+    "nodemon": "^3.1.9",
     "supertest": "^7.0.0"
   }
 }
