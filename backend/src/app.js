@@ -6,7 +6,7 @@ import routes from './routes/routes.js';
 import cors from 'cors';
 
 const app = express();
-const port = 3000;
+const port = 4000;
 
 app.use(express.json());
 
