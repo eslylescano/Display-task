@@ -1,0 +1,39 @@
+.result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .result::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: calc(var(--percentage, 0) * 1%);
+    background: rgba(75, 0, 130, 0.8);
+    z-index: 1;
+    transition: width 0.3s ease;
+  }
+  
+  .result-option {
+    font-size: 16px;
+    color: #fff;
+    z-index: 2;
+    padding-left: 15px;
+  }
+  
+  .result-percentage {
+    font-weight: bold;
+    color: #fff;
+    z-index: 2;
+    padding-right: 15px;
+  }
