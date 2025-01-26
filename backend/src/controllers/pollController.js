@@ -35,6 +35,28 @@ class PollController {
             res.status(400).json({ error: error.message });
         }
     }
+
+    async castVote(req, res) {
+        try {
+            const { id, optionName } = req.params;
+            const updatedPoll = await this.service.castVote(id, optionName);
+            res.status(200).json(updatedPoll);
+        } catch (error) {
+            res.status(400).json({ error: error.message });
+        }
+    }
+
+    async getVotesForPoll(req, res) {
+        try {
+            const votes = await this.service.getVotesForPoll(req.params.id);
+            if (!votes || votes.length === 0) {
+                return res.status(404).json({ error: 'No votes found for this poll' });
+            }
+            res.status(200).json(votes);
+        } catch (error) {
+            res.status(400).json({ error: error.message });
+        }
+    }
 }
 
 export default PollController;

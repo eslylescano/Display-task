@@ -11,6 +11,14 @@ class PollRepository {
         throw new Error('Method not implemented');
     }
 
+    async castVote(id, optionName) {
+        throw new Error('castVote method not implemented');
+    }
+
+    async findVotesByPoll(id) {
+        throw new Error('findVotesByPoll method not implemented');
+    }
+
 }
 
 export default PollRepository;

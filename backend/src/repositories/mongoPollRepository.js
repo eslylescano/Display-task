@@ -15,6 +15,10 @@ class MongoPollRepository extends PollRepository {
         return await Poll.findById(id);
     }
 
+    async updatePoll(poll) {
+        return await poll.save();
+    }
+
 }
 
 export default MongoPollRepository;
